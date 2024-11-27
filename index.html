@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MrAbsurd">
+    <meta name="keywords" content="BingX, OKX, Bybit, Binace, trade, trading, calc, calculator, finance">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Trade Calculator">
+    <meta property="og:description" content="Calculator for finance. Calculation of transactions, profit/loss forecast, etc.">
+    <meta property="og:url" content="https://mrabsurdick.github.io/TradeCalc">
+    <meta property="og:image" content="og.jpg">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/themes/dark.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <title>Trade Calc</title>
+</head>
+<body>
+    <block>
+        <header>
+            <h3>Trade Calc</h3>
+        </header>
+        <content>
+            <section>
+                <box>
+                    <label for="TC-AccountBalance">Account Balance:</label>
+                    <inpwrapp>
+                        <input type="number" name="TC-AccountBalance" id="TC-AccountBalance" value="0" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="TC-TradeVolume">Trade Volume:</label>
+                    <inpwrapp>
+                        <input type="number" name="TC-TradeVolume" id="TC-TradeVolume" value="0" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="TC-Leverage">Leverage:</label>
+                    <inpwrapp>
+                        <prefix>1x</prefix>
+                        <input type="number" name="TC-Leverage" id="TC-Leverage" value="1" placeholder="0.0">
+                    </inpwrapp>
+                </box>
+                <br>
+                <box>
+                    <label for="TC-TradeType">Type:</label>
+                    <inpwrapp>
+                        <select name="TC-TradeType" id="TC-TradeType">
+                            <option value="long">LONG</option>
+                            <option value="short">SHORT</option>
+                        </select>
+                    </inpwrapp>
+                </box>
+                <br>
+                <box>
+                    <label for="TC-Entry">Entry:</label>
+                    <inpwrapp>
+                        <input type="number" name="TC-Entry" id="TC-Entry" value="1" placeholder="0.0">
+                        <sufix>P</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="TC-TradeTakeProfit">Take Profit:</label>
+                    <inpwrapp>
+                        <input type="number" name="TC-TradeTakeProfit" id="TC-TradeTakeProfit" value="1" placeholder="0.0">
+                        <sufix>P</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="TC-TradeStopLos">Stop Los:</label>
+                    <inpwrapp>
+                        <input type="number" name="TC-TradeStopLos" id="TC-TradeStopLos" value="1" placeholder="0.0">
+                        <sufix>P</sufix>
+                    </inpwrapp>
+                </box>
+            </section>
+            <hr>
+            <section>
+                <report>
+                    <report>
+                        <p>TP ROI: <focus type="tp"><span id="TC-ResTPROI">0</span>%</focus></p>
+                        <p>Take Profit: <focus type="tp"><span id="TC-ResTakeProfit">0</span>$</focus></p>
+                        <p>Profit Percent To Balance: <focus type="tp"><span id="TC-ResProfitPercentToBalance">0</span>%</focus></p>
+                        <p>TP Final Balance: <focus type="tp"><span id="TC-ResTPFinalBalance">0</span>$</focus></p>
+                        <br>
+                        <p>SL ROI: <focus type="sl"><span id="TC-ResSLROI">0</span>%</focus></p>
+                        <p>Stop Los: <focus type="sl"><span id="TC-ResStopLos">0</span>$</focus></p>
+                        <p>Loss Percent To Balance: <focus type="sl"><span id="TC-ResLossPercentToBalance">0</span>%</focus></p>
+                        <p>SL Final Balance: <focus type="sl"><span id="TC-ResSLFinalBalance">0</span>$</focus></p>
+                        <br>
+                        <p>Risk Reward: <focus><span>1:</span><span id="TC-ResRiskReward">0</span></focus></p>
+                        <p>Liquidation Price: <focus><span id="TC-ResLiquidationPrice">0</span>$</focus></p>
+                    </report>
+                </report>
+            </section>
+        </content>
+    </block>
+    <block>
+        <header><h3>Forecast of progress</h3></header>
+        <content>
+            <section>
+                <box>
+                    <label for="FOP-StartBalance">Start Balance:</label>
+                    <inpwrapp>
+                        <input type="number" name="FOP-StartBalance" id="FOP-StartBalance" value="1" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="FOP-PercentOfLoss">Percent Of Loss:</label>
+                    <inpwrapp>
+                        <input type="number" name="FOP-PercentOfLoss" id="FOP-PercentOfLoss" value="1" placeholder="0.0">
+                        <sufix>%</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="FOP-RiskToReward">Risk To Reward:</label>
+                    <inpwrapp>
+                        <prefix>1:</prefix>
+                        <input type="number" name="FOP-RiskToReward" id="FOP-RiskToReward" value="1" placeholder="0.0">
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="FOP-WinRate">Win Rate:</label>
+                    <inpwrapp>
+                        <input type="number" name="FOP-WinRate" id="FOP-WinRate" value="1" placeholder="0.0">
+                        <sufix>%</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="FOP-NumberOfTrades">Number Of Trades:</label>
+                    <inpwrapp>
+                        <input type="number" name="FOP-NumberOfTrades" id="FOP-NumberOfTrades" value="1" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+            </section>
+            <hr>
+            <section>
+                <report>
+                    <p>Final Balance: <focus><span id="FOP-FinalBalance">0</span>$</focus></p>
+                    <p>Total Profit Or Loss: <focus><span id="FOP-TotalProfitOrLoss">0</span>$</focus></p>
+                    <p>Average Return Per Trade: <focus><span id="FOP-AvgReturnPerTrade">0</span>%</focus></p>
+                    <br>
+                    <p>Profit Factor: <focus>*<span id="FOP-ProfitFactor">0</span></focus></p>
+                    <p>Trades: <focus type="tp">~<span id="FOP-WinningTrades">0</span> TP</focus> / <focus type="sl">~<span id="FOP-LosingTrades">0</span> SL</focus></p>
+                </report>
+            </section>
+        </content>
+    </block>
+    <block>
+        <header><h3>About</h3></header>
+        <content>
+            <section>
+                <p>Author GitHub: <a href="https://github.com/MrAbsurdick" target="_blank">@MrAbsurdick</a></p>
+                <p>Author Discord: <a href="https://discord.com/users/706784505519800391/" target="_blank">@mrabsurdick</a></p>
+                <p>Author YouTube: <a href="https://www.youtube.com/@MrAbsurd" target="_blank">@MrAbsurd</a></p>
+                <p>Telegram Blog: <a href="t.me/MrAbsurdBlog" target="_blank">MrAbsurdBlog</a></p>
+            </section>
+            <hr>
+            <section>
+                <p><b>ByBit</b> Referral Code: <a href="https://www.bybit.com/invite?ref=9VL5N59" target="_blank">9VL5N59</a></p>
+                <p><b>Binace</b> Referral Code: <a href="https://www.binance.com/activity/referral-entry/CPA/together-v4?hl=uk-UA&ref=CPA_00X88G7VDF" target="_blank">CPA_00X88G7VDF</a></p>
+                <p><b>BingX</b> Referral Code: <a href="https://bingx.com/invite/SOS4PS/" target="_blank">SOS4PS</a></p>
+            </section>
+        </content>
+    </block>
+</body>
+    <script src="scripts/main.js"></script>
+</html>

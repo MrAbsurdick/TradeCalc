@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+    box-sizing: border-box;
+    transition: 200ms;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input[type="number"] {-moz-appearance: textfield;}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {-webkit-appearance: none;margin: 0;}
+::selection,::-moz-selection{background-color: var(--sc-1); color: var(--bg-1);}
+focus::selection, focus::-moz-selection{background-color: var(--bg-1); color: var(--sc-1);}
+focus ::selection, focus ::-moz-selection{background-color: var(--bg-1); color: var(--sc-1);}
+[type="sl"]::selection,[type="sl"]::-moz-selection{background-color: var(--sc-tp); color: var(--fg-1);}
+[type="sl"] ::selection,[type="sl"] ::-moz-selection{background-color: var(--sc-tp); color: var(--fg-1);}
+[type="tp"]::selection,[type="tp"]::-moz-selection{background-color: var(--sc-sl); color: var(--fg-1);}
+[type="tp"] ::selection,[type="tp"] ::-moz-selection{background-color: var(--sc-sl); color: var(--fg-1);}
+
+
+h1,h2,h3,h4,h5,h6,p,b,label{padding: 2px 4px; color: var(--fg-1);}
+span{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; font-weight: 100;}
+
+
+body{background-color: var(--bg-1)}
+block{margin: 10px; padding: 10px; display: block; background-color: var(--bg-1);}
+header{background-color: var(--bg-3); padding: 5px; margin-bottom: 5px; border-radius: 8px 8px 0 0; justify-content: center; text-align: center;}
+content{background-color: var(--bg-2); padding: 14px; border-radius: 0 0 8px 8px;}
+box{padding: 4px 0; display: flex; justify-content: space-between; align-items: center;}
+
+report{display: block;}
+section{all: unset; display: block; width: 100%;}
+
+inpwrapp{display: flex; padding: 4px 8px 4px 8px; justify-content: space-between; border-radius: 4px; border: 1px solid var(--bg-5); background-color: var(--bg-1);}
+prefix{padding: 0px 8px 0px 0px; margin: 0px 8px 0px 0px; border-right: 1px solid var(--bg-5); color: var(--fg-1); display: block; width: 24px; text-align: center;}
+sufix{padding: 0px 0px 0px 8px; margin: 0px 0px 0px 8px; border-left: 1px solid var(--bg-5); color: var(--fg-1); display: block; width: 24px; text-align: center;}
+inpwrapp>select{background-color: var(--bg-1);color: var(--fg-1);}
+
+
+input, select, button{all: unset; border: 0; width: 100%; color: var(--fg-1); user-select: contain; font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; font-style: normal;}
+input:focus {
+    color: var(--sc-1);
+}
+
+
+table{background-color: var(--sc-1);}
+td{padding: 0px 6px; color: #fff; background-color: var(--bg-1);}
+hr{color: var(--bg-5); background-color: var(--bg-5); border-color: var(--bg-5);}
+
+@media (max-width: 768px) {
+    hr{margin: 20px 0;}
+    content{
+        display: block;
+    }
+    box{
+        display: block;
+    }
+}
+@media (min-width: 769px) {
+    hr{margin: 0 20px;}
+    content{
+        display: flex;
+    }
+    box{
+        display: flex;
+        padding-left: 0px;
+        border-left: 1px solid var(--bg-2);
+        border-right: 1px solid var(--bg-2);
+        background: unset;
+        transition: border-color 400ms, border-width 400ms, background 400ms;
+        transition: 400ms;
+    }
+    box:hover{
+        transition: 400ms;
+        padding-left: 10px;
+        border-left: 1px solid var(--sc-1);
+        border-right: 10px solid var(--bg-2);
+        transition: border-color 400ms, border-width 400ms, background 400ms;
+        background: linear-gradient(90deg, rgba(19,22,26,1) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 100%);
+    }
+
+}
+focus {
+    cursor: pointer;
+    display: inline-block;
+    background-color: var(--sc-1);
+    color: var(--bg-1);
+    margin: 0px 2px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+focus[type="sl"]{background-color: var(--sc-sl);}
+focus[type="tp"]{background-color: var(--sc-tp);}
+focus:hover{background-color: var(--sc-2);}
+focus:active{color: var(--fg-1);}
+focus:active *{color: var(--fg-1);}
+
+p{user-select:text;}
+p>*{user-select:text;}
+p>*>*{user-select:text;}
+
+a{color: var(--sc-2);}
+a:visited{color: var(--sc-1);}
