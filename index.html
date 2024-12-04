@@ -10,7 +10,7 @@
     <meta property="og:title" content="Trade Calculator">
     <meta property="og:description" content="Calculator for finance. Calculation of transactions, profit/loss forecast, etc.">
     <meta property="og:url" content="https://mrabsurdick.github.io/TradeCalc">
-    <meta property="og:image" content="og.jpg">
+    <meta property="og:image" content="https://mrabsurdick.github.io/og.jpg">
 
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/themes/dark.css">
@@ -18,6 +18,73 @@
     <title>Trade Calc</title>
 </head>
 <body>
+    <block>
+        <header><h3>Position Calc</h3></header>
+        <content>
+            <section>
+                <box>
+                    <label for="PC-AccountBalance">Account Balance:</label>
+                    <inpwrapp>
+                        <input type="number" name="PC-AccountBalance" id="PC-AccountBalance" value="0" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="PC-PercentOfLoss">Percent Of Loss:</label>
+                    <inpwrapp>
+                        <input type="number" name="PC-PercentOfLoss" id="PC-PercentOfLoss" value="1" placeholder="0.0">
+                        <sufix>%</sufix>
+                    </inpwrapp>
+                </box>
+                <br>
+                <box>
+                    <label for="PC-Type">Type:</label>
+                    <inpwrapp>
+                        <select name="PC-Type" id="PC-Type">
+                            <option value="long">LONG</option>
+                            <option value="short">SHORT</option>
+                        </select>
+                    </inpwrapp>
+                </box>
+                <br>
+                <box>
+                    <label for="PC-Entry">Entry:</label>
+                    <inpwrapp>
+                        <input type="number" name="PC-Entry" id="PC-Entry" value="0" placeholder="0.0">
+                        <sufix>P</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="PC-StopLoss">Stop Loss:</label>
+                    <inpwrapp>
+                        <input type="number" name="PC-StopLoss" id="PC-StopLoss" value="0" placeholder="0.0">
+                        <sufix>P</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="PC-RiskToReward">Risk To Reward:</label>
+                    <inpwrapp>
+                        <prefix>1:</prefix>
+                        <input type="number" name="PC-RiskToReward" id="PC-RiskToReward" value="2" placeholder="0.0">
+                    </inpwrapp>
+                </box>
+            </section>
+            <hr>
+            <section>
+                <report>
+                    <p>Position Size: <focus><span id="PC-ResPositionSizeDollar">0</span>$</focus> / <focus><span id="PC-ResPositionSizeQuantity">0</span>(Qty)</focus></p>
+                    <p>Take Profit Price: <focus><span id="PC-ResProfitQP">0</span>P</focus></p>
+                    <br>
+                    <p>Take Profit: <focus type="tp"><span id="PC-ResTP">0</span>$</focus></p>
+                    <p>Final Balance (TP): <focus type="tp"><span id="PC-ResFinalBalanceTP">0</span>$</focus> / <focus  type="tp"><span id="PC-ResTPROI">0</span>%</focus></p>
+                    <br>
+                    <p>Stop Loss: <focus type="sl"><span id="PC-ResSL">0</span>$</focus></p>
+                    <p>Final Balance (SL): <focus type="sl"><span id="PC-ResFinalBalanceSL">0</span>$</focus> / <focus  type="sl"><span id="PC-ResSLROI">0</span>%</focus></p>
+                </report>
+            </section>
+        </content>
+    </block>
+
     <block>
         <header>
             <h3>Trade Calc</h3>
@@ -71,9 +138,9 @@
                     </inpwrapp>
                 </box>
                 <box>
-                    <label for="TC-TradeStopLos">Stop Los:</label>
+                    <label for="TC-TradeStopLoss">Stop Loss:</label>
                     <inpwrapp>
-                        <input type="number" name="TC-TradeStopLos" id="TC-TradeStopLos" value="1" placeholder="0.0">
+                        <input type="number" name="TC-TradeStopLoss" id="TC-TradeStopLoss" value="1" placeholder="0.0">
                         <sufix>P</sufix>
                     </inpwrapp>
                 </box>
@@ -81,20 +148,18 @@
             <hr>
             <section>
                 <report>
-                    <report>
-                        <p>TP ROI: <focus type="tp"><span id="TC-ResTPROI">0</span>%</focus></p>
-                        <p>Take Profit: <focus type="tp"><span id="TC-ResTakeProfit">0</span>$</focus></p>
-                        <p>Profit Percent To Balance: <focus type="tp"><span id="TC-ResProfitPercentToBalance">0</span>%</focus></p>
-                        <p>TP Final Balance: <focus type="tp"><span id="TC-ResTPFinalBalance">0</span>$</focus></p>
-                        <br>
-                        <p>SL ROI: <focus type="sl"><span id="TC-ResSLROI">0</span>%</focus></p>
-                        <p>Stop Los: <focus type="sl"><span id="TC-ResStopLos">0</span>$</focus></p>
-                        <p>Loss Percent To Balance: <focus type="sl"><span id="TC-ResLossPercentToBalance">0</span>%</focus></p>
-                        <p>SL Final Balance: <focus type="sl"><span id="TC-ResSLFinalBalance">0</span>$</focus></p>
-                        <br>
-                        <p>Risk Reward: <focus><span>1:</span><span id="TC-ResRiskReward">0</span></focus></p>
-                        <p>Liquidation Price: <focus><span id="TC-ResLiquidationPrice">0</span>$</focus></p>
-                    </report>
+                    <!-- <p>TP ROI: <focus type="tp"><span id="TC-ResTPROI">0</span>%</focus></p> -->
+                    <p>Take Profit: <focus type="tp"><span id="TC-ResTakeProfit">0</span>$</focus> / <focus type="tp"><span id="TC-ResTPROI">0</span>(ROI)</focus></p>
+                    <!-- <p>Profit Percent To Balance: <focus type="tp"><span id="TC-ResProfitPercentToBalance">0</span>%</focus></p> -->
+                    <p>Final Balance (TP): <focus type="tp"><span id="TC-ResTPFinalBalance">0</span>$</focus> / <focus type="tp"><span id="TC-ResProfitPercentToBalance">0</span>%</focus></p>
+                    <br>
+                    <!-- <p>SL ROI: <focus type="sl"><span id="TC-ResSLROI">0</span>%</focus></p> -->
+                    <p>Stop Los: <focus type="sl"><span id="TC-ResStopLos">0</span>$</focus> / <focus type="sl"><span id="TC-ResSLROI">0</span>(ROI)</focus></p>
+                    <!-- <p>Loss Percent To Balance: <focus type="sl"><span id="TC-ResLossPercentToBalance">0</span>%</focus></p> -->
+                    <p>Final Balance (SL): <focus type="sl"><span id="TC-ResSLFinalBalance">0</span>$</focus> / <focus type="sl"><span id="TC-ResLossPercentToBalance">0</span>%</focus></p>
+                    <br>
+                    <p>Risk Reward: <focus><span>1:</span><span id="TC-ResRiskReward">0</span></focus></p>
+                    <p>Liquidation Price: <focus><span id="TC-ResLiquidationPrice">0</span>$</focus></p>
                 </report>
             </section>
         </content>
@@ -106,7 +171,7 @@
                 <box>
                     <label for="FOP-StartBalance">Start Balance:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-StartBalance" id="FOP-StartBalance" value="0" placeholder="0.0">
+                        <input type="number" name="FOP-StartBalance" id="FOP-StartBalance" value="1" placeholder="0.0">
                         <sufix>$</sufix>
                     </inpwrapp>
                 </box>
@@ -121,20 +186,20 @@
                     <label for="FOP-RiskToReward">Risk To Reward:</label>
                     <inpwrapp>
                         <prefix>1:</prefix>
-                        <input type="number" name="FOP-RiskToReward" id="FOP-RiskToReward" value="2" placeholder="0.0">
+                        <input type="number" name="FOP-RiskToReward" id="FOP-RiskToReward" value="1" placeholder="0.0">
                     </inpwrapp>
                 </box>
                 <box>
                     <label for="FOP-WinRate">Win Rate:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-WinRate" id="FOP-WinRate" value="50" placeholder="0.0">
+                        <input type="number" name="FOP-WinRate" id="FOP-WinRate" value="1" placeholder="0.0">
                         <sufix>%</sufix>
                     </inpwrapp>
                 </box>
                 <box>
                     <label for="FOP-NumberOfTrades">Number Of Trades:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-NumberOfTrades" id="FOP-NumberOfTrades" value="248" placeholder="0.0">
+                        <input type="number" name="FOP-NumberOfTrades" id="FOP-NumberOfTrades" value="1" placeholder="0.0">
                         <sufix>$</sufix>
                     </inpwrapp>
                 </box>
