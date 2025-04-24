@@ -165,13 +165,13 @@
         </content>
     </block>
     <block>
-        <header><h3>Forecast of progress</h3></header>
+        <header><h3>Forecast Of Progress</h3></header>
         <content>
             <section>
                 <box>
                     <label for="FOP-StartBalance">Start Balance:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-StartBalance" id="FOP-StartBalance" value="1" placeholder="0.0">
+                        <input type="number" name="FOP-StartBalance" id="FOP-StartBalance" value="1000" placeholder="0.0">
                         <sufix>$</sufix>
                     </inpwrapp>
                 </box>
@@ -186,21 +186,21 @@
                     <label for="FOP-RiskToReward">Risk To Reward:</label>
                     <inpwrapp>
                         <prefix>1:</prefix>
-                        <input type="number" name="FOP-RiskToReward" id="FOP-RiskToReward" value="1" placeholder="0.0">
+                        <input type="number" name="FOP-RiskToReward" id="FOP-RiskToReward" value="2" placeholder="0.0">
                     </inpwrapp>
                 </box>
                 <box>
                     <label for="FOP-WinRate">Win Rate:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-WinRate" id="FOP-WinRate" value="1" placeholder="0.0">
+                        <input type="number" name="FOP-WinRate" id="FOP-WinRate" value="50" placeholder="0.0">
                         <sufix>%</sufix>
                     </inpwrapp>
                 </box>
                 <box>
                     <label for="FOP-NumberOfTrades">Number Of Trades:</label>
                     <inpwrapp>
-                        <input type="number" name="FOP-NumberOfTrades" id="FOP-NumberOfTrades" value="261" placeholder="0">
-                        <sufix>*</sufix>
+                        <input type="number" name="FOP-NumberOfTrades" id="FOP-NumberOfTrades" value="360" placeholder="0.0">
+                        <sufix>$</sufix>
                     </inpwrapp>
                 </box>
             </section>
@@ -218,13 +218,66 @@
         </content>
     </block>
     <block>
+        <header><h3>Static Position Size Progress</h3></header>
+        <content>
+            <section>
+                <box>
+                    <label for="SPSP-StartBalance">Start Balance:</label>
+                    <inpwrapp>
+                        <input type="number" name="SPSP-StartBalance" id="SPSP-StartBalance" value="1000" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="SPSP-PercentOfLoss">Percent Of Loss:</label>
+                    <inpwrapp>
+                        <input type="number" name="SPSP-PercentOfLoss" id="SPSP-PercentOfLoss" value="1" placeholder="0.0">
+                        <sufix>%</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="SPSP-RiskToReward">Risk To Reward:</label>
+                    <inpwrapp>
+                        <prefix>1:</prefix>
+                        <input type="number" name="SPSP-RiskToReward" id="SPSP-RiskToReward" value="2" placeholder="0.0">
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="SPSP-WinRate">Win Rate:</label>
+                    <inpwrapp>
+                        <input type="number" name="SPSP-WinRate" id="SPSP-WinRate" value="50" placeholder="0.0">
+                        <sufix>%</sufix>
+                    </inpwrapp>
+                </box>
+                <box>
+                    <label for="SPSP-NumberOfTrades">Number Of Trades:</label>
+                    <inpwrapp>
+                        <input type="number" name="SPSP-NumberOfTrades" id="SPSP-NumberOfTrades" value="360" placeholder="0.0">
+                        <sufix>$</sufix>
+                    </inpwrapp>
+                </box>
+            </section>
+            <hr>
+            <section>
+                <report>
+                    <p>Final Balance: <focus><span id="SPSP-FinalBalance">0</span>$</focus></p>
+                    <p>Total Profit Or Loss: <focus><span id="SPSP-TotalProfitOrLoss">0</span>$</focus></p>
+                    <p>Average Return Per Trade: <focus><span id="SPSP-AvgReturnPerTrade">0</span>%</focus></p>
+                    <br>
+                    <p>Profit Factor: <focus>*<span id="SPSP-ProfitFactor">0</span></focus></p>
+                    <p>Trades: <focus type="tp">~<span id="SPSP-WinningTrades">0</span> TP</focus> / <focus type="sl">~<span id="SPSP-LosingTrades">0</span> SL</focus></p>
+                </report>
+            </section>
+        </content>
+    </block>
+    <block>
         <header><h3>About</h3></header>
         <content>
             <section>
                 <p>Author GitHub: <a href="https://github.com/MrAbsurdick" target="_blank">@MrAbsurdick</a></p>
                 <p>Author Discord: <a href="https://discord.com/users/706784505519800391/" target="_blank">@mrabsurdick</a></p>
                 <p>Author YouTube: <a href="https://www.youtube.com/@MrAbsurd" target="_blank">@MrAbsurd</a></p>
-                <p>Telegram Blog: <a href="https://t.me/MrAbsurdBlog" target="_blank">MrAbsurdBlog</a></p>
+                <p>Telegram Blog: <a href="https://t.me/MrAbsurdBlog" target="_blank">t.me/MrAbsurdBlog</a></p>
             </section>
             <hr>
             <section>
